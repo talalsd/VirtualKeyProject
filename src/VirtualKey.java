@@ -11,7 +11,7 @@ public class VirtualKey {
 
 
  void addFile(String fileName) throws IOException {
-	Path path = Paths.get("/Users/talal/eclipse-workspaceEE/VKT/src/Directory/"+fileName);
+	Path path = Paths.get("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory/"+fileName);
     String s = "";
     Files.createDirectories(path.getParent());
 
@@ -31,11 +31,11 @@ public class VirtualKey {
 }
 
  void displayFiles() {
-
+     try {
 	 List<String> results = new ArrayList<String>();
 
 
-	 File[] files1 = new File("/Users/talal/eclipse-workspaceEE/VKT/src/Directory").listFiles();
+	 File[] files1 = new File("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory").listFiles();
 	 
 	 for (File file : files1) {
 	     if (file.isFile()) {
@@ -53,6 +53,9 @@ public class VirtualKey {
 		 System.out.println(fileNames[i]);
 	 }
 	 } else System.out.println("The directory is currently empty");
+     }catch (Exception e) {
+    	 System.out.println("The directory doesn't exist");
+    	 }
 	 
 	 
 }
@@ -61,7 +64,7 @@ void deleteFiles(String fileName) {
 	if(searchFile(fileName) == true) {
 	try  
 	{         
-	File f= new File("/Users/talal/eclipse-workspaceEE/VKT/src/Directory/" + fileName);            
+	File f= new File("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory/" + fileName);            
 	if(f.delete())                        
 	{  
 	System.out.println("The file '"+fileName+"' has been deleted successfully");     
@@ -101,7 +104,7 @@ void deleteFiles(String fileName) {
 	  List<String> results = new ArrayList<String>();
 
 
-		 File[] files1 = new File("/Users/talal/eclipse-workspaceEE/VKT/src/Directory").listFiles();
+		 File[] files1 = new File("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory").listFiles();
 		 
 		 for (File file : files1) {
 		     if (file.isFile()) {
