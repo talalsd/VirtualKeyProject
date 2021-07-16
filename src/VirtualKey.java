@@ -11,9 +11,14 @@ public class VirtualKey {
 
 
  void addFile(String fileName) throws IOException {
-	Path path = Paths.get("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory/"+fileName);
-    String s = "";
+	Path path = null;
+	String s = "";
+	try {
+	path = Paths.get("/Users/talal/eclipse-workspaceEE/VirtualKeyProject/src/Directory/"+fileName);
     Files.createDirectories(path.getParent());
+	 }catch (Exception e) {
+		 System.out.println("The directory doesn't exist");
+	 }
 
     try {
         Files.createFile(path);
@@ -76,7 +81,7 @@ void deleteFiles(String fileName) {
 	}  
 	catch(Exception e)  
 	{  
-	e.printStackTrace();  
+	System.out.println("The directory doesn't exist");  
 	}  
 }
 	else System.out.println("The file '"+fileName+"' was not found");
@@ -101,6 +106,7 @@ void deleteFiles(String fileName) {
   
   boolean searchFile(String fileName) {
 	  boolean flag = false;
+	  try {
 	  List<String> results = new ArrayList<String>();
 
 
@@ -122,6 +128,9 @@ void deleteFiles(String fileName) {
 				 break;
 			 }
 		 }
+	  }catch(Exception e) {
+		  System.out.println("The directory doesn't exist");
+	  }
 		 
 		 return flag;
 
